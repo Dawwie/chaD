@@ -1,6 +1,5 @@
 import { FlashList, FlashListProps } from "@shopify/flash-list";
 import React from "react";
-import { ActivityIndicator } from "react-native";
 
 import { RoomItem } from "./RoomItem";
 import { SingleRoomType } from "../types/rooms";
@@ -11,7 +10,7 @@ import { Box, useTheme } from "@/utils/theme";
 const ESTIMATED_ITEM_SIZE = 96;
 
 interface RoomsListProps {
-  rooms: SingleRoomType[];
+  rooms: SingleRoomType[] | undefined;
   isLoading?: boolean;
 }
 

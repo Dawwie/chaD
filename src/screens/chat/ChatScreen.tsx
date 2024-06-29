@@ -1,11 +1,9 @@
-import Phone from "@/assets/icons/phone.svg";
-import Videocall from "@/assets/icons/videocall.svg";
-import { Header } from "@/components/Header";
+import { ChatHeader } from "./components/ChatHeader";
+
 import {
   ChatScreenNavigationProp,
   ChatScreenRouteProp,
 } from "@/navigation/types";
-import { Box } from "@/utils/theme";
 
 interface ChatScreenProps {
   route: ChatScreenRouteProp;
@@ -18,12 +16,7 @@ export const ChatScreen = ({ route }: ChatScreenProps) => {
   } = route;
   return (
     <>
-      <Header>
-        <Box flexDirection="row" columnGap="s">
-          <Phone />
-          <Videocall />
-        </Box>
-      </Header>
+      <ChatHeader username="The Widlarz Group" />
     </>
   );
 };

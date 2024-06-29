@@ -1,6 +1,5 @@
 import { useQuery } from "@apollo/client";
 import { useNavigation } from "@react-navigation/native";
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import React from "react";
 import { TouchableOpacity } from "react-native";
 
@@ -9,7 +8,7 @@ import { RoomDetailsType, SingleRoomType } from "../types/rooms";
 
 import { GET_ROOM_DETAILS } from "@/api/rooms";
 import { Avatar } from "@/components/Avatar";
-import { RoomsScreenNavigationProp } from "@/navigation/types";
+import { ChatScreenNavigationProp } from "@/navigation/types";
 import { Text, Box } from "@/utils/theme";
 
 interface RoomItemProps {
@@ -20,7 +19,7 @@ export const RoomItem = ({ roomId }: RoomItemProps) => {
   const { data } = useQuery<RoomDetailsType>(GET_ROOM_DETAILS, {
     variables: { id: roomId },
   });
-  const { navigate } = useNavigation<RoomsScreenNavigationProp>();
+  const { navigate } = useNavigation<ChatScreenNavigationProp>();
 
   const { name, messages } = data?.room || {};
   const lastMessage = messages && messages[messages.length - 1];
