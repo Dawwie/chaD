@@ -17,6 +17,7 @@ export const themeConfig = createTheme({
     xs: 2,
     s: 4,
     m: 8,
+    ml: 10,
     l: 12,
     xl: 24,
     full: 9999,
