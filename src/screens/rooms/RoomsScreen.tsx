@@ -1,13 +1,15 @@
+import { useQuery } from "@apollo/client";
+
 import { RoomsList } from "./components/RoomsList";
 
-import { useFetchRooms } from "@/api/rooms/useFetchRooms";
+import { GET_ROOMS } from "@/api/rooms";
 import Phone from "@/assets/icons/phone.svg";
 import Videocall from "@/assets/icons/videocall.svg";
 import { Header } from "@/components/Header";
 import { Box } from "@/utils/theme";
 
 export const RoomsScreen = () => {
-  const { data, loading } = useFetchRooms();
+  const { data, loading } = useQuery(GET_ROOMS);
 
   return (
     <>

@@ -5,7 +5,7 @@ import { TouchableOpacity } from "react-native";
 import { RoomBadge } from "./RoomBadge";
 import { SingleRoomType } from "../types/rooms";
 
-import { GET_ROOM_DETAILS } from "@/api/rooms/queries";
+import { GET_ROOM_DETAILS } from "@/api/rooms";
 import { Avatar } from "@/components/Avatar";
 import { Text, Box } from "@/utils/theme";
 
