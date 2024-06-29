@@ -1,7 +1,7 @@
 import { Image } from "expo-image";
 import React, { ComponentProps } from "react";
 
-import AvatarIcon from "@/assets/icons/avatar.svg";
+import Profile from "@/assets/icons/profile.svg";
 import { Box } from "@/utils/theme";
 
 const IMAGE_TRANSITION_DURATION = 1000;
@@ -33,7 +33,7 @@ export const Avatar = ({ size = "l", src, ...containerProps }: AvatarProps) => (
         transition={IMAGE_TRANSITION_DURATION}
       />
     ) : (
-      <AvatarIcon width={avatarSizes[size]} height={avatarSizes[size]} />
+      <Profile width={avatarSizes[size]} height={avatarSizes[size]} />
     )}
   </Box>
 );
