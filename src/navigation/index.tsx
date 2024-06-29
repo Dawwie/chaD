@@ -1,12 +1,13 @@
-import { NavigationContainer } from "@react-navigation/native";
+import { DefaultTheme, NavigationContainer } from "@react-navigation/native";
 import { enableFreeze } from "react-native-screens";
 
 import { AppStackNavigation } from "./AppStackNavigation";
 
 import { useLoadFonts } from "@/utils/fontConfig";
-import { Box } from "@/utils/theme";
+import { Box, useTheme } from "@/utils/theme";
 
 export const AppNavigation = () => {
+  const { colors } = useTheme();
   const { fontsLoaded, fontError, onLayoutRootView } = useLoadFonts();
 
   if (!fontsLoaded && !fontError) {
@@ -15,9 +16,17 @@ export const AppNavigation = () => {
 
   enableFreeze();
 
+  const navigatorTheme = {
+    ...DefaultTheme,
+    colors: {
+      ...DefaultTheme.colors,
+      background: colors.veryLightBlue,
+    },
+  };
+
   return (
     <Box flex={1} onLayout={onLayoutRootView}>
-      <NavigationContainer>
+      <NavigationContainer theme={navigatorTheme}>
         <AppStackNavigation />
       </NavigationContainer>
     </Box>

@@ -1,12 +1,12 @@
-import { Text, View } from "react-native";
+import { Text } from "react-native";
 
-import { useTheme } from "@/utils/theme";
+import { Box, useTheme } from "@/utils/theme";
 
 export const Messages = () => {
   const { typography } = useTheme();
   return (
-    <View>
+    <Box flex={1}>
       <Text style={typography.heading1}>Messages</Text>
-    </View>
+    </Box>
   );
 };
