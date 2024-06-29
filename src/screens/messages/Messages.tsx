@@ -1,12 +1,5 @@
-import { Text } from "react-native";
-
-import { Box, useTheme } from "@/utils/theme";
+import { Header } from "@/components/Header";
 
 export const Messages = () => {
-  const { typography } = useTheme();
-  return (
-    <Box flex={1}>
-      <Text style={typography.heading1}>Messages</Text>
-    </Box>
-  );
+  return <Header headerTitle="Rooms" />;
 };
