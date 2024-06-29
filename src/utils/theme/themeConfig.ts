@@ -4,6 +4,7 @@ import { colors } from "./colors";
 
 export const themeConfig = createTheme({
   spacing: {
+    xxs: 2,
     xs: 4,
     s: 8,
     m: 16,
@@ -18,6 +19,7 @@ export const themeConfig = createTheme({
     m: 8,
     l: 12,
     xl: 24,
+    full: 9999,
   },
   zIndices: {},
   fontSize: {
