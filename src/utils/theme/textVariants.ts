@@ -1,6 +1,4 @@
-import { TextStyle } from "react-native";
-
-const typography: { [key: string]: TextStyle } = {
+const textVariants = {
   heading1: {
     fontFamily: "Poppins-Bold",
     fontSize: 36,
@@ -8,6 +6,7 @@ const typography: { [key: string]: TextStyle } = {
   heading2: {
     fontFamily: "Poppins-Bold",
     fontSize: 28,
+    lineHeight: 42,
   },
   heading3: {
     fontFamily: "Poppins-Bold",
@@ -50,6 +49,7 @@ const typography: { [key: string]: TextStyle } = {
     fontSize: 12,
     lineHeight: 16,
   },
+  defaults: {},
 };
 
-export default typography;
+export default textVariants;

@@ -3,7 +3,13 @@ import { createTheme } from "@shopify/restyle";
 import { colors } from "./colors";
 
 export const themeConfig = createTheme({
-  spacing: {},
+  spacing: {
+    xs: 4,
+    s: 8,
+    m: 16,
+    l: 24,
+    xl: 40,
+  },
   colors,
   breakpoints: {},
   borderRadii: {
