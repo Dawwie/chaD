@@ -2,7 +2,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import { StackNavigatorPresets } from "./presets/StackNavigatorPresets";
 
-import { Messages } from "@/screens/messages/Messages";
+import { MessagesScreen } from "@/screens/messages/MessagesScreen";
 import { Box } from "@/utils/theme";
 
 const AppStack = createNativeStackNavigator();
@@ -14,7 +14,7 @@ export const AppStackNavigation = () => {
         initialRouteName="MESSAGES"
         {...StackNavigatorPresets.modalNavigator}
       >
-        <AppStack.Screen name="MESSAGES" component={Messages} />
+        <AppStack.Screen name="MESSAGES" component={MessagesScreen} />
       </AppStack.Navigator>
     </Box>
   );

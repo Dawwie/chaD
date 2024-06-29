@@ -1,5 +1,5 @@
 import { Header } from "@/components/Header";
 
-export const Messages = () => {
+export const MessagesScreen = () => {
   return <Header headerTitle="Rooms" />;
 };
