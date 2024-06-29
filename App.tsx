@@ -1,9 +1,9 @@
+import { ThemeProvider } from "@shopify/restyle";
 import * as SplashScreen from "expo-splash-screen";
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 
 import { useLoadFonts } from "@/utils/fontConfig";
-import typography from "@/utils/theme/typography";
+import { theme } from "@/utils/theme";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -15,12 +15,9 @@ export default function App() {
   }
 
   return (
-    <View style={styles.container} onLayout={onLayoutRootView}>
-      <Text style={typography.caption2}>
-        Open up App.tsx to start working on your app!
-      </Text>
-      <StatusBar style="auto" />
-    </View>
+    <ThemeProvider theme={theme}>
+      <View style={styles.container} onLayout={onLayoutRootView} />
+    </ThemeProvider>
   );
 }
 
