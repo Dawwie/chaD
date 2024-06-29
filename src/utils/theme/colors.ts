@@ -1,0 +1,33 @@
+export const palette = {
+  plum200: "#C692FD",
+  plum300: "#993AFC",
+  plum500: "#5603AD",
+  plum700: "#390273",
+  blue100: "#F0F8FF",
+  blue300: "#B6DEFD",
+  blue500: "#259DFA",
+  gray100: "#E9EAEE",
+  gray300: "#BFC1CC",
+  gray500: "#9FA2B2",
+  white: "#FFFFFF",
+  black: "#1A1A1A",
+  active: "#A8FF76",
+  error: "#FF445A",
+} as const;
+
+export const colors = {
+  white: palette.white,
+  black: palette.black,
+  lightPlum: palette.plum200,
+  mediumPlum: palette.plum300,
+  darkPlum: palette.plum500,
+  darkestPlum: palette.plum700,
+  veryLightBlue: palette.blue100,
+  lightBlue: palette.blue300,
+  mediumBlue: palette.blue500,
+  veryLightGray: palette.gray100,
+  lightGray: palette.gray300,
+  mediumGray: palette.gray500,
+  active: palette.active,
+  error: palette.error,
+} as const;
