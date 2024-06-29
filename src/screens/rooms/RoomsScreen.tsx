@@ -1,6 +1,7 @@
 import { useQuery } from "@apollo/client";
 
 import { RoomsList } from "./components/RoomsList";
+import { RoomsType } from "./types/rooms";
 
 import { GET_ROOMS } from "@/api/rooms";
 import Phone from "@/assets/icons/phone.svg";
@@ -9,7 +10,7 @@ import { Header } from "@/components/Header";
 import { Box } from "@/utils/theme";
 
 export const RoomsScreen = () => {
-  const { data, loading } = useQuery(GET_ROOMS);
+  const { data, loading } = useQuery<RoomsType>(GET_ROOMS);
 
   return (
     <>
@@ -19,8 +20,7 @@ export const RoomsScreen = () => {
           <Videocall />
         </Box>
       </Header>
-
-      <RoomsList rooms={data?.usersRooms?.rooms} isLoading={loading} />
+      <RoomsList rooms={data!.usersRooms?.rooms} isLoading={loading} />
     </>
   );
 };

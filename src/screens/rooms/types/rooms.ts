@@ -12,6 +12,25 @@ export interface UserType {
 }
 
 export interface RoomsType {
-  rooms: SingleRoomType[];
+  usersRooms: {
+    rooms: SingleRoomType[];
+    user: UserType;
+  };
+}
+
+export interface RoomType {
+  id: string;
+  messages: Message[];
+  name: string;
   user: UserType;
+}
+export interface Message {
+  id: string;
+  body: string;
+  insertedAt: string;
+  user: UserType;
+}
+
+export interface RoomDetailsType {
+  room: Pick<RoomType, "name" | "messages">;
 }

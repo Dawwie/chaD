@@ -3,7 +3,7 @@ import React from "react";
 import { TouchableOpacity } from "react-native";
 
 import { RoomBadge } from "./RoomBadge";
-import { SingleRoomType } from "../types/rooms";
+import { RoomDetailsType, SingleRoomType } from "../types/rooms";
 
 import { GET_ROOM_DETAILS } from "@/api/rooms";
 import { Avatar } from "@/components/Avatar";
@@ -14,10 +14,12 @@ interface RoomItemProps {
 }
 
 export const RoomItem = ({ roomId }: RoomItemProps) => {
-  const { data } = useQuery(GET_ROOM_DETAILS, { variables: { id: roomId } });
+  const { data } = useQuery<RoomDetailsType>(GET_ROOM_DETAILS, {
+    variables: { id: roomId },
+  });
 
   const { name, messages } = data?.room || {};
-  const lastMessage = messages[messages.length - 1];
+  const lastMessage = messages && messages[messages.length - 1];
 
   return (
     <TouchableOpacity onPress={() => console.log(`Room ${name} pressed`)}>
