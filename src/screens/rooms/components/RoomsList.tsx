@@ -20,7 +20,7 @@ export const RoomsList = ({ rooms, isLoading }: RoomsListProps) => {
 
   const renderItem: FlashListProps<SingleRoomType>["renderItem"] = ({
     item,
-  }) => <RoomItem room={item} />;
+  }) => <RoomItem roomId={item.id} />;
 
   const renderItemSeparator = () => {
     return <Box height={spacing.s} />;

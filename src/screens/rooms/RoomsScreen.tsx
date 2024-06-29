@@ -9,7 +9,6 @@ import { Box } from "@/utils/theme";
 export const RoomsScreen = () => {
   const { data, loading } = useFetchRooms();
 
-  console.log(data);
   return (
     <>
       <Header headerTitle="Rooms">
