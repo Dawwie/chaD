@@ -1,7 +1,7 @@
 import { DefaultTheme, NavigationContainer } from "@react-navigation/native";
 import { enableFreeze } from "react-native-screens";
 
-import { AppStackNavigation } from "./AppStackNavigation";
+import { AuthStackNavigation } from "./AuthStackNavigation";
 
 import { useLoadFonts } from "@/utils/fontConfig";
 import { Box, useTheme } from "@/utils/theme";
@@ -27,7 +27,7 @@ export const AppNavigation = () => {
   return (
     <Box flex={1} onLayout={onLayoutRootView}>
       <NavigationContainer theme={navigatorTheme}>
-        <AppStackNavigation />
+        <AuthStackNavigation />
       </NavigationContainer>
     </Box>
   );

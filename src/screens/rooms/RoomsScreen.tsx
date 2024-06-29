@@ -1,4 +1,5 @@
 import { useQuery } from "@apollo/client";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
 import { RoomsList } from "./components/RoomsList";
 import { RoomsType } from "./types/rooms";
