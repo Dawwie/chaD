@@ -8,7 +8,6 @@ import {
   TextInputFocusEventData,
 } from "react-native";
 
-import Clear from "@/assets/icons/clear.svg";
 import VisionLow from "@/assets/icons/vision-low.svg";
 import Vision from "@/assets/icons/vision.svg";
 import { Box } from "@/utils/theme";
@@ -20,6 +19,7 @@ interface CustomTextInputProps extends TextInputProps {
   error?: boolean;
   disabled?: boolean;
   variant?: "default" | "password";
+  isBottomRightRounded?: boolean;
 }
 
 export const CustomTextInput = ({
@@ -27,10 +27,11 @@ export const CustomTextInput = ({
   onChangeText,
   onBlur,
   placeholder,
-  secureTextEntry,
   error,
   disabled,
   variant = "default",
+  clearButtonMode = "always",
+  isBottomRightRounded = true,
   ...rest
 }: CustomTextInputProps) => {
   const [inputValue, setInputValue] = useState<string>(value || "");
@@ -42,10 +43,6 @@ export const CustomTextInput = ({
   const handleTextChange = (text: string) => {
     setInputValue(text);
     onChangeText && onChangeText(text);
-  };
-
-  const handleClear = () => {
-    setInputValue("");
   };
 
   const handleFocus = () => {
@@ -67,9 +64,11 @@ export const CustomTextInput = ({
     <Box
       width={TEXT_INPUT_WIDTH}
       height={TEXT_INPUT_HEIGHT}
-      paddingHorizontal="m"
+      paddingLeft="m"
+      paddingRight="s"
       paddingVertical="s"
       borderRadius="ml"
+      borderBottomRightRadius={isBottomRightRounded ? "ml" : "none"}
       backgroundColor={disabled ? "veryLightGray" : "white"}
       flexDirection="row"
       alignItems="center"
@@ -86,22 +85,12 @@ export const CustomTextInput = ({
         editable={!disabled}
         secureTextEntry={!showPassword}
         placeholderTextColor={disabled ? "gray" : "darkgray"}
+        clearButtonMode={clearButtonMode}
         {...rest}
       />
-      {!disabled && (
-        <TouchableOpacity
-          onPress={variant === "password" ? toggleShowPassword : handleClear}
-          style={styles.icon}
-        >
-          {variant === "password" ? (
-            showPassword ? (
-              <VisionLow />
-            ) : (
-              <Vision />
-            )
-          ) : (
-            inputValue.length > 0 && <Clear />
-          )}
+      {!disabled && variant === "password" && (
+        <TouchableOpacity onPress={toggleShowPassword}>
+          {showPassword ? <VisionLow /> : <Vision />}
         </TouchableOpacity>
       )}
     </Box>
@@ -112,8 +101,5 @@ const styles = StyleSheet.create({
   input: {
     flex: 1,
     height: "100%",
-  },
-  icon: {
-    marginLeft: 8,
   },
 });

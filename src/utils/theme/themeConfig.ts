@@ -14,6 +14,7 @@ export const themeConfig = createTheme({
   colors,
   breakpoints: {},
   borderRadii: {
+    none: 0,
     xs: 2,
     s: 4,
     m: 8,
