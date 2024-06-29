@@ -1,4 +1,3 @@
-import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { TouchableOpacity } from "react-native";
 
@@ -12,7 +11,7 @@ interface RoomItemProps {
   room: SingleRoomType;
 }
 
-export const RoomItem: React.FC<RoomItemProps> = ({ room: { name } }) => {
+export const RoomItem = ({ room: { name } }: RoomItemProps) => {
   return (
     <TouchableOpacity onPress={() => console.log(`Room ${name} pressed`)}>
       <Box

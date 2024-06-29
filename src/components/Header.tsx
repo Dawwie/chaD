@@ -2,17 +2,17 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { Text, Box } from "@/utils/theme";
 
-interface Props {
+interface HeaderProps {
   headerTitle?: string;
   isBackButton?: boolean;
   children?: React.ReactNode;
 }
 
-export const Header: React.FC<Props> = ({
+export const Header = ({
   headerTitle,
   isBackButton,
   children,
-}) => {
+}: HeaderProps) => {
   const insets = useSafeAreaInsets();
 
   const renderHeaderTitle = () => {

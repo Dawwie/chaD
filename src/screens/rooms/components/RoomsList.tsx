@@ -1,18 +1,21 @@
 import { FlashList, FlashListProps } from "@shopify/flash-list";
 import React from "react";
+import { ActivityIndicator } from "react-native";
 
 import { RoomItem } from "./RoomItem";
 import { SingleRoomType } from "../types/rooms";
 
+import { LoadingIndicator } from "@/components/LoadingIndicator";
 import { Box, useTheme } from "@/utils/theme";
 
 const ESTIMATED_ITEM_SIZE = 96;
 
 interface RoomsListProps {
   rooms: SingleRoomType[];
+  isLoading?: boolean;
 }
 
-export const RoomsList: React.FC<RoomsListProps> = ({ rooms }) => {
+export const RoomsList = ({ rooms, isLoading }: RoomsListProps) => {
   const { spacing } = useTheme();
 
   const renderItem: FlashListProps<SingleRoomType>["renderItem"] = ({
@@ -26,14 +29,20 @@ export const RoomsList: React.FC<RoomsListProps> = ({ rooms }) => {
   const keyExtractor = (item: SingleRoomType) => item.id;
 
   return (
-    <Box flex={1} marginTop="xl">
-      <FlashList
-        data={rooms}
-        renderItem={renderItem}
-        keyExtractor={keyExtractor}
-        estimatedItemSize={ESTIMATED_ITEM_SIZE}
-        ItemSeparatorComponent={renderItemSeparator}
-      />
-    </Box>
+    <>
+      {isLoading ? (
+        <LoadingIndicator />
+      ) : (
+        <Box flex={1} marginTop="xl">
+          <FlashList
+            data={rooms}
+            renderItem={renderItem}
+            keyExtractor={keyExtractor}
+            estimatedItemSize={ESTIMATED_ITEM_SIZE}
+            ItemSeparatorComponent={renderItemSeparator}
+          />
+        </Box>
+      )}
+    </>
   );
 };

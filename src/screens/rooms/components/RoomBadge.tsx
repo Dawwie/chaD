@@ -2,11 +2,11 @@ import React from "react";
 
 import { Box, Text } from "@/utils/theme";
 
-interface Props {
+interface RoomBadgeProps {
   time?: string;
 }
 
-export const RoomBadge: React.FC<Props> = ({ time }) => {
+export const RoomBadge = ({ time }: RoomBadgeProps) => {
   return (
     <Box position="absolute" right={16} top={12}>
       {time ? (

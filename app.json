@@ -23,11 +23,17 @@
     "web": {
       "favicon": "./src/assets/favicon.png"
     },
-    "plugins": ["expo-font", [
-      "expo-asset",
-      {
-        "assetPlugins": ["./src/assets"]
-      }
-    ]]
+    "plugins": [
+      "expo-font",
+      [
+        "expo-asset",
+        {
+          "assetPlugins": [
+            "./src/assets"
+          ]
+        }
+      ],
+      "expo-secure-store"
+    ]
   }
 }
