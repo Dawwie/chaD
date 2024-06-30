@@ -11,7 +11,7 @@ interface HeaderProps {
   children?: React.ReactNode;
 }
 
-const MINIMUM_HEADER_HEIGHT = 120;
+export const HEADER_HEIGHT = 120;
 
 export const Header = ({ isBackButton, children }: HeaderProps) => {
   const insets = useSafeAreaInsets();
@@ -26,7 +26,7 @@ export const Header = ({ isBackButton, children }: HeaderProps) => {
       padding="m"
       flexDirection="row"
       alignItems="center"
-      minHeight={MINIMUM_HEADER_HEIGHT}
+      height={HEADER_HEIGHT}
     >
       {isBackButton && (
         <TouchableOpacity onPress={goBack}>
