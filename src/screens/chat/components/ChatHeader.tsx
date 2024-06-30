@@ -18,12 +18,7 @@ export const ChatHeader = ({ username, isActive }: ChatHeaderProps) => (
       <Box flexDirection="row" columnGap="s">
         <Avatar size="m" />
         <Box>
-          <Text
-            fontFamily="Poppins"
-            fontWeight={600}
-            lineHeight={21}
-            color="darkPlum"
-          >
+          <Text fontFamily="Poppins-SemiBold" lineHeight={21} color="darkPlum">
             {username}
           </Text>
           <Text variant="bodyText" color="white">

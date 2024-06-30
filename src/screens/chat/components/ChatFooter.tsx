@@ -2,6 +2,7 @@ import { KeyboardAvoidingView, Pressable } from "react-native";
 
 import Send from "@/assets/icons/send.svg";
 import { CustomTextInput } from "@/components/CustomTextInput";
+import { IS_IOS } from "@/constants/commons";
 import { Box, useTheme } from "@/utils/theme";
 
 const CHAT_FOOTER_HEIGHT = 102;
@@ -14,7 +15,7 @@ export const ChatFooter = () => {
   };
 
   return (
-    <KeyboardAvoidingView behavior="padding">
+    <KeyboardAvoidingView behavior={IS_IOS ? "padding" : "height"}>
       <Box
         height={CHAT_FOOTER_HEIGHT}
         backgroundColor="lightBlue"
