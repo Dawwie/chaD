@@ -4,11 +4,11 @@ import React from "react";
 import { TouchableOpacity } from "react-native";
 
 import { RoomBadge } from "./RoomBadge";
-import { RoomDetailsType, SingleRoomType } from "../types/rooms";
 
 import { GET_ROOM_DETAILS } from "@/api/rooms";
 import { Avatar } from "@/components/Avatar";
 import { ChatScreenNavigationProp } from "@/navigation/types";
+import { SingleRoomType, RoomDetailsType } from "@/types/rooms";
 import { Text, Box } from "@/utils/theme";
 
 interface RoomItemProps {

@@ -5,6 +5,11 @@ import { ChatBubble } from "./ChatBubble";
 import { ChatFooter } from "./ChatFooter";
 
 import { Avatar } from "@/components/Avatar";
+import { Message } from "@/types/rooms";
+
+interface ChatMessagesProps {
+  messages: Message[];
+}
 
 export const ChatMessages = () => {
   const [messages, setMessages] = useState<IMessage[]>([]);

@@ -2,9 +2,9 @@ import { FlashList, FlashListProps } from "@shopify/flash-list";
 import React from "react";
 
 import { RoomItem } from "./RoomItem";
-import { SingleRoomType } from "../types/rooms";
 
 import { LoadingIndicator } from "@/components/LoadingIndicator";
+import { SingleRoomType } from "@/types/rooms";
 import { Box, useTheme } from "@/utils/theme";
 
 const ESTIMATED_ITEM_SIZE = 96;
