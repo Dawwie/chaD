@@ -4,6 +4,7 @@ import { ChatBubble } from "./ChatBubble";
 import { ChatFooter } from "./ChatFooter";
 import { useChatMessages } from "../hooks/useChatMessages";
 
+import { useUser } from "@/contexts/UserProvider";
 import { Message } from "@/types/rooms";
 
 interface ChatMessagesProps {
@@ -14,6 +15,7 @@ export const ChatMessages = ({ messagesList = [] }: ChatMessagesProps) => {
   const { messages, text, setText, handleSend } = useChatMessages({
     messagesList,
   });
+  const { user } = useUser();
 
   const renderCustomInputToolbar = (props: any) => (
     <ChatFooter
@@ -27,7 +29,7 @@ export const ChatMessages = ({ messagesList = [] }: ChatMessagesProps) => {
     <GiftedChat
       messages={messages}
       user={{
-        _id: 1,
+        _id: user!.id,
       }}
       renderInputToolbar={renderCustomInputToolbar}
       renderBubble={(props) => <ChatBubble {...props} />}

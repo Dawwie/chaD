@@ -19,7 +19,7 @@ export const GET_ROOMS = gql`
 `;
 
 export const GET_ROOM_DETAILS = gql`
-  query getRoomDetails($id: ID!) {
+  query GetRoomDetails($id: ID!) {
     room(id: $id) {
       name
       messages {

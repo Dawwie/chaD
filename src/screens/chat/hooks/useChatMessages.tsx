@@ -2,7 +2,8 @@ import { useState, useEffect, useCallback } from "react";
 import { IMessage, GiftedChat } from "react-native-gifted-chat";
 import uuid from "react-native-uuid";
 
-import { Avatar } from "@/components/Avatar";
+import { transformMessages } from "../helpers/transformMessages";
+
 import { useUser } from "@/contexts/UserProvider";
 import { Message } from "@/types/rooms";
 
@@ -16,20 +17,8 @@ export const useChatMessages = ({ messagesList }: ChatMessagesHookProps) => {
   const { user } = useUser();
 
   useEffect(() => {
-    messagesList.forEach((message) => {
-      setMessages([
-        {
-          _id: message.id,
-          text: message.body,
-          createdAt: new Date(message.insertedAt),
-          user: {
-            _id: message.user.id,
-            name: `${message.user.firstName} ${message.user.lastName}`,
-            avatar: () => <Avatar size="s" />,
-          },
-        },
-      ]);
-    });
+    const transformedMessages = transformMessages(messagesList);
+    setMessages(transformedMessages);
   }, [messagesList]);
 
   const onSend = useCallback((messages: IMessage[] = []) => {
@@ -45,7 +34,7 @@ export const useChatMessages = ({ messagesList }: ChatMessagesHookProps) => {
       text: messageText,
       createdAt: new Date(),
       user: {
-        _id: 1,
+        _id: user!.id,
         name: `${user?.firstName} ${user?.lastName}`,
       },
     };
