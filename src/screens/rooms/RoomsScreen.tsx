@@ -1,4 +1,5 @@
 import { useQuery } from "@apollo/client";
+import { useEffect } from "react";
 
 import { RoomHeader } from "./components/RoomHeader";
 import { RoomsList } from "./components/RoomsList";
@@ -11,7 +12,9 @@ export const RoomsScreen = () => {
   const { data, loading } = useQuery<RoomsType>(GET_ROOMS);
   const { setUser } = useUser();
 
-  if (data?.usersRooms.user) setUser(data.usersRooms.user);
+  useEffect(() => {
+    if (data?.usersRooms.user) setUser(data.usersRooms.user);
+  }, [data?.usersRooms.user]);
 
   return (
     <>
