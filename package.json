@@ -7,7 +7,8 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "typescript:check": "tsc --noEmit"
   },
   "dependencies": {
     "@apollo/client": "^3.10.8",
