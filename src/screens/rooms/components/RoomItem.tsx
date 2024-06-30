@@ -22,7 +22,7 @@ export const RoomItem = ({ roomId }: RoomItemProps) => {
   const { navigate } = useNavigation<ChatScreenNavigationProp>();
 
   const { name, messages } = data?.room || {};
-  const lastMessage = messages && messages[messages.length - 1];
+  const lastMessage = messages && messages[0];
 
   const onItemPress = () => {
     navigate("CHAT", { roomId });

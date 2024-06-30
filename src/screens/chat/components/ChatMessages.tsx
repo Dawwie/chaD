@@ -8,12 +8,17 @@ import { useUser } from "@/contexts/UserProvider";
 import { Message } from "@/types/rooms";
 
 interface ChatMessagesProps {
+  roomId: string;
   messagesList?: Message[];
 }
 
-export const ChatMessages = ({ messagesList = [] }: ChatMessagesProps) => {
+export const ChatMessages = ({
+  messagesList = [],
+  roomId,
+}: ChatMessagesProps) => {
   const { messages, text, setText, handleSend } = useChatMessages({
     messagesList,
+    roomId,
   });
   const { user } = useUser();
 

@@ -35,7 +35,7 @@ export const ChatScreen = ({ route }: ChatScreenProps) => {
       <Box flex={1} justifyContent="space-between">
         <ChatHeader username={data?.room?.name} />
         <Box flex={1} style={{ marginBottom: insets.top }}>
-          <ChatMessages messagesList={data?.room?.messages} />
+          <ChatMessages roomId={roomId} messagesList={data?.room?.messages} />
         </Box>
       </Box>
     </DismissKeyboard>
