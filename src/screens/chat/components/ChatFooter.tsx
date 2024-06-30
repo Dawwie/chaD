@@ -6,12 +6,24 @@ import { IS_IOS } from "@/constants/commons";
 import { Box, useTheme } from "@/utils/theme";
 
 const CHAT_FOOTER_HEIGHT = 102;
+interface ChatFooterProps {
+  value: string;
+  onChangeText: (text: string) => void;
+  onSendMessage: (message: string) => void;
+}
 
-export const ChatFooter = () => {
+export const ChatFooter = ({
+  value,
+  onChangeText,
+  onSendMessage,
+}: ChatFooterProps) => {
   const { colors, spacing } = useTheme();
 
   const sendMessage = () => {
-    // Send message logic
+    const trimmedValue = value.trim();
+    if (trimmedValue.length > 0) {
+      onSendMessage(trimmedValue);
+    }
   };
 
   return (
@@ -26,7 +38,12 @@ export const ChatFooter = () => {
         flexDirection="row"
         justifyContent="center"
       >
-        <CustomTextInput isBottomRightRounded={false} />
+        <CustomTextInput
+          value={value}
+          onChangeText={onChangeText}
+          isBottomRightRounded={false}
+          clearButtonMode="never"
+        />
         <Pressable onPress={sendMessage} style={{ marginLeft: spacing.s }}>
           {({ pressed }) => (
             <Send color={pressed ? colors.darkestPlum : colors.darkPlum} />

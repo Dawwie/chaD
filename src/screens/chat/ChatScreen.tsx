@@ -1,5 +1,7 @@
-import { ChatFooter } from "./components/ChatFooter";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
+
 import { ChatHeader } from "./components/ChatHeader";
+import { ChatMessages } from "./components/ChatMessages";
 
 import { DismissKeyboard } from "@/components/DismissKeyboard";
 import {
@@ -14,6 +16,7 @@ interface ChatScreenProps {
 }
 
 export const ChatScreen = ({ route }: ChatScreenProps) => {
+  const insets = useSafeAreaInsets();
   const {
     params: { roomId },
   } = route;
@@ -21,7 +24,9 @@ export const ChatScreen = ({ route }: ChatScreenProps) => {
     <DismissKeyboard>
       <Box flex={1} justifyContent="space-between">
         <ChatHeader username="The Widlarz Group" />
-        <ChatFooter />
+        <Box flex={1} style={{ marginBottom: insets.top }}>
+          <ChatMessages />
+        </Box>
       </Box>
     </DismissKeyboard>
   );

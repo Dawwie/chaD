@@ -34,14 +34,12 @@ export const CustomTextInput = ({
   isBottomRightRounded = true,
   ...rest
 }: CustomTextInputProps) => {
-  const [inputValue, setInputValue] = useState<string>(value || "");
   const [isFocused, setIsFocused] = useState<boolean>(false);
   const [showPassword, setShowPassword] = useState<boolean>(
     variant !== "password",
   );
 
   const handleTextChange = (text: string) => {
-    setInputValue(text);
     onChangeText && onChangeText(text);
   };
 
@@ -77,7 +75,7 @@ export const CustomTextInput = ({
     >
       <TextInput
         style={styles.input}
-        value={inputValue}
+        value={value}
         onChangeText={handleTextChange}
         onFocus={handleFocus}
         onBlur={handleBlur}
