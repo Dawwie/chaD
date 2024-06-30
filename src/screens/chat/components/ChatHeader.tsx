@@ -15,10 +15,15 @@ interface ChatHeaderProps {
 export const ChatHeader = ({ username, isActive }: ChatHeaderProps) => (
   <Header isBackButton>
     <SpaceBetweenBox>
-      <Box flexDirection="row" columnGap="s">
+      <Box flex={1} flexDirection="row" columnGap="s">
         <Avatar size="m" />
-        <Box>
-          <Text fontFamily="Poppins-SemiBold" lineHeight={21} color="darkPlum">
+        <Box flex={1} overflow="hidden" width="70%">
+          <Text
+            fontFamily="Poppins-SemiBold"
+            lineHeight={21}
+            color="darkPlum"
+            numberOfLines={1}
+          >
             {username}
           </Text>
           <Text variant="bodyText" color="white">
