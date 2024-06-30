@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { GiftedChat, IMessage } from "react-native-gifted-chat";
 
+import { ChatBubble } from "./ChatBubble";
 import { ChatFooter } from "./ChatFooter";
 
 import { Avatar } from "@/components/Avatar";
@@ -36,7 +37,6 @@ export const ChatMessages = () => {
 
   const onSend = useCallback((messages: IMessage[] = []) => {
     setMessages((previousMessages) => {
-      console.log(previousMessages, messages);
       return GiftedChat.append(previousMessages, messages);
     });
     setText("");
@@ -71,6 +71,7 @@ export const ChatMessages = () => {
         _id: 1,
       }}
       renderInputToolbar={renderCustomInputToolbar}
+      renderBubble={(props) => <ChatBubble {...props} />}
     />
   );
 };

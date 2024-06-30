@@ -28,6 +28,7 @@ export const themeConfig = createTheme({
   fontSize: {
     xs: 10,
     sm: 12,
+    m: 14,
     base: 16,
     lg: 22,
     xl: 28,
