@@ -7,6 +7,13 @@ export const GET_ROOMS = gql`
         id
         name
       }
+      user {
+        email
+        firstName
+        id
+        lastName
+        role
+      }
     }
   }
 `;
