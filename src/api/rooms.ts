@@ -23,8 +23,14 @@ export const GET_ROOM_DETAILS = gql`
     room(id: $id) {
       name
       messages {
+        id
         body
         insertedAt
+        user {
+          firstName
+          id
+          lastName
+        }
       }
     }
   }

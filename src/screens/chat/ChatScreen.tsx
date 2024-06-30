@@ -1,13 +1,16 @@
+import { useQuery } from "@apollo/client";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { ChatHeader } from "./components/ChatHeader";
 import { ChatMessages } from "./components/ChatMessages";
 
+import { GET_ROOM_DETAILS } from "@/api/rooms";
 import { DismissKeyboard } from "@/components/DismissKeyboard";
 import {
   ChatScreenNavigationProp,
   ChatScreenRouteProp,
 } from "@/navigation/types";
+import { GetRoomDetailsResponse } from "@/types/rooms";
 import { Box } from "@/utils/theme";
 
 interface ChatScreenProps {
@@ -20,12 +23,19 @@ export const ChatScreen = ({ route }: ChatScreenProps) => {
   const {
     params: { roomId },
   } = route;
+
+  const { data } =
+    useQuery<GetRoomDetailsResponse>(GET_ROOM_DETAILS, {
+      variables: { id: roomId },
+      pollInterval: 500,
+    }) || {};
+
   return (
     <DismissKeyboard>
       <Box flex={1} justifyContent="space-between">
-        <ChatHeader username="The Widlarz Group" />
+        <ChatHeader username={data?.room?.name} />
         <Box flex={1} style={{ marginBottom: insets.top }}>
-          <ChatMessages />
+          <ChatMessages messagesList={data?.room?.messages} />
         </Box>
       </Box>
     </DismissKeyboard>

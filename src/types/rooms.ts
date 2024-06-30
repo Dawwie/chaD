@@ -31,6 +31,6 @@ export interface Message {
   user: UserType;
 }
 
-export interface RoomDetailsType {
-  room: Pick<RoomType, "name" | "messages">;
+export interface GetRoomDetailsResponse {
+  room: RoomType | null;
 }

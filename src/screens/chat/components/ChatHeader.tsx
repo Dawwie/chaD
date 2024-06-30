@@ -8,11 +8,14 @@ import { SpaceBetweenBox } from "@/components/SpaceBetweenBox";
 import { Text, Box } from "@/utils/theme";
 
 interface ChatHeaderProps {
-  username: string;
+  username?: string;
   isActive?: boolean;
 }
 
-export const ChatHeader = ({ username, isActive }: ChatHeaderProps) => (
+export const ChatHeader = ({
+  username = "Anonymous",
+  isActive,
+}: ChatHeaderProps) => (
   <Header isBackButton>
     <SpaceBetweenBox>
       <Box flex={1} flexDirection="row" columnGap="s">

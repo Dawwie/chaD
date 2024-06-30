@@ -8,7 +8,7 @@ import { RoomBadge } from "./RoomBadge";
 import { GET_ROOM_DETAILS } from "@/api/rooms";
 import { Avatar } from "@/components/Avatar";
 import { ChatScreenNavigationProp } from "@/navigation/types";
-import { SingleRoomType, RoomDetailsType } from "@/types/rooms";
+import { SingleRoomType, GetRoomDetailsResponse } from "@/types/rooms";
 import { Text, Box } from "@/utils/theme";
 
 interface RoomItemProps {
@@ -16,7 +16,7 @@ interface RoomItemProps {
 }
 
 export const RoomItem = ({ roomId }: RoomItemProps) => {
-  const { data } = useQuery<RoomDetailsType>(GET_ROOM_DETAILS, {
+  const { data } = useQuery<GetRoomDetailsResponse>(GET_ROOM_DETAILS, {
     variables: { id: roomId },
   });
   const { navigate } = useNavigation<ChatScreenNavigationProp>();
