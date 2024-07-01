@@ -5,7 +5,7 @@ import { ChatFooter } from "./ChatFooter";
 import { useChatMessages } from "../hooks/useChatMessages";
 
 import { useUser } from "@/contexts/UserProvider";
-import { Message } from "@/types/rooms";
+import { Message } from "@/api/types/rooms";
 
 interface ChatMessagesProps {
   roomId: string;

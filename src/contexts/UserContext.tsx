@@ -1,6 +1,6 @@
 import { createContext } from "react";
 
-import { UserType } from "@/types/rooms";
+import { UserType } from "@/api/types/rooms";
 
 export interface UserContextState {
   user: UserType | null;
@@ -8,5 +8,5 @@ export interface UserContextState {
 }
 
 export const UserContext = createContext<UserContextState | undefined>(
-  undefined,
+  undefined
 );

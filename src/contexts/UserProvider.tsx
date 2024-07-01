@@ -2,7 +2,7 @@ import { ReactNode, useContext, useState } from "react";
 
 import { UserContext, UserContextState } from "./UserContext";
 
-import { UserType } from "@/types/rooms";
+import { UserType } from "@/api/types/rooms";
 
 export const UserProvider: React.FC<{ children: ReactNode }> = ({
   children,

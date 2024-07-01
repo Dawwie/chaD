@@ -4,10 +4,10 @@ import { setItemAsync } from "expo-secure-store";
 import { LoginFooter } from "./components/LoginFooter";
 import { useLoginScreen } from "./hooks/useLoginScreen";
 
-import { LOGIN_USER } from "@/api/login";
+import { LOGIN_USER } from "@/api/queries/login";
 import { FormInput } from "@/components/form/FormInput";
 import { FormTemplate } from "@/components/form/FormTemplate";
-import { LoginUserPayload } from "@/types/login";
+import { LoginUserPayload } from "@/api/types/login";
 import { Box } from "@/utils/theme";
 
 export const LoginScreen = () => {

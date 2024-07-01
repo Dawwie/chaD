@@ -4,7 +4,7 @@ import React from "react";
 import { RoomItem } from "./RoomItem";
 
 import { LoadingIndicator } from "@/components/LoadingIndicator";
-import { SingleRoomType } from "@/types/rooms";
+import { SingleRoomType } from "@/api/types/rooms";
 import { Box, useTheme } from "@/utils/theme";
 
 const ESTIMATED_ITEM_SIZE = 96;

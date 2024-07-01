@@ -4,9 +4,9 @@ import { useEffect } from "react";
 import { RoomHeader } from "./components/RoomHeader";
 import { RoomsList } from "./components/RoomsList";
 
-import { GET_ROOMS } from "@/api/rooms";
+import { GET_ROOMS } from "@/api/queries/rooms";
 import { useUser } from "@/contexts/UserProvider";
-import { RoomsType } from "@/types/rooms";
+import { RoomsType } from "@/api/types/rooms";
 
 export const RoomsScreen = () => {
   const { data, loading } = useQuery<RoomsType>(GET_ROOMS);

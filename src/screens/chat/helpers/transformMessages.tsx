@@ -1,4 +1,4 @@
-import { Message } from "@/types/rooms";
+import { Message } from "@/api/types/rooms";
 
 export const transformMessages = (apiMessages: Message[]) => {
   return apiMessages.map((message) => ({
