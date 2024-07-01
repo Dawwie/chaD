@@ -13,7 +13,7 @@ export const AppStackNavigation = () => {
   return (
     <Box flex={1}>
       <AppStack.Navigator
-        initialRouteName="LOGIN"
+        initialRouteName="SIGNUP"
         {...StackNavigatorPresets.modalNavigator}
       >
         <AppStack.Screen name="LOGIN" component={LoginScreen} />
