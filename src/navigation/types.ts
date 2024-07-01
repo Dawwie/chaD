@@ -25,3 +25,8 @@ export type ChatScreenNavigationProp = NativeStackNavigationProp<
   AuthStackParamList,
   "CHAT"
 >;
+
+export type LoginScreenNavigationProp = NativeStackNavigationProp<
+  AppStackParamList,
+  "LOGIN"
+>;

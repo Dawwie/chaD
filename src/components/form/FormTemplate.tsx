@@ -6,12 +6,14 @@ import { Box, Text } from "@/utils/theme";
 interface FormTemplateProps extends React.ComponentProps<typeof Box> {
   title: string;
   subtitle?: string;
+  renderFooter?: () => React.ReactNode;
 }
 
 export const FormTemplate = ({
   children,
   title,
   subtitle,
+  renderFooter,
   ...props
 }: FormTemplateProps) => {
   const insets = useSafeAreaInsets();
@@ -34,7 +36,17 @@ export const FormTemplate = ({
           </Text>
         )}
       </Box>
-      <Box paddingHorizontal="xl">{children}</Box>
+      <Box
+        flex={1}
+        justifyContent="space-between"
+        paddingHorizontal="m"
+        style={{ paddingBottom: insets.bottom }}
+      >
+        <Box paddingHorizontal="xl" alignItems="center">
+          {children}
+        </Box>
+        {renderFooter && <Box>{renderFooter()}</Box>}
+      </Box>
     </Box>
   );
 };

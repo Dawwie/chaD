@@ -21,6 +21,11 @@ const textVariants = {
     fontSize: 16,
     letterSpacing: 16 * 0.01, // 1% of 16
   },
+  buttonTextSmall: {
+    fontFamily: "Poppins-SemiBold",
+    fontSize: 14,
+    letterSpacing: 16 * 0.01, // 1% of 16
+  },
   label: {
     fontFamily: "Poppins-Medium",
     fontSize: 16,
