@@ -1,5 +1,4 @@
 import { DefaultTheme, NavigationContainer } from "@react-navigation/native";
-import { useRef } from "react";
 import { enableFreeze } from "react-native-screens";
 
 import { AppStackNavigation } from "./AppStackNavigation";
@@ -21,29 +20,16 @@ export const AppNavigation = () => {
       background: colors.veryLightBlue,
     },
   };
-  enableFreeze();
 
-  const navigationRef: any = useRef();
-  const routeNameRef = useRef();
+  enableFreeze();
 
   if (!fontsLoaded && !fontError) {
     return null;
   }
+
   return (
     <Box flex={1} onLayout={onLayoutRootView}>
-      <NavigationContainer
-        theme={navigatorTheme}
-        ref={navigationRef}
-        onReady={() => {
-          if (routeNameRef) {
-            routeNameRef.current = navigationRef.current.getCurrentRoute();
-          }
-        }}
-        onStateChange={() => {
-          const currentRouteName = navigationRef.current.getCurrentRoute();
-          routeNameRef.current = currentRouteName;
-        }}
-      >
+      <NavigationContainer theme={navigatorTheme}>
         {isAuthenticated ? <AuthStackNavigation /> : <AppStackNavigation />}
       </NavigationContainer>
     </Box>
