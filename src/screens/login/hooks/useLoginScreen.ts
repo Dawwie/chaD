@@ -8,7 +8,7 @@ export const useLoginScreen = () => {
     control,
     reset,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm({
     defaultValues: {
       email: "",
@@ -19,6 +19,7 @@ export const useLoginScreen = () => {
   return {
     control,
     errors,
+    isValid,
     reset,
     setUser,
     handleSubmit,

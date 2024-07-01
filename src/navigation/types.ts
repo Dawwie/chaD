@@ -30,3 +30,8 @@ export type LoginScreenNavigationProp = NativeStackNavigationProp<
   AppStackParamList,
   "LOGIN"
 >;
+
+export type SignUpScreenNavigationProp = NativeStackNavigationProp<
+  AppStackParamList,
+  "SIGNUP"
+>;

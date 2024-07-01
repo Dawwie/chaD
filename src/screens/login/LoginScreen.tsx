@@ -1,22 +1,17 @@
 import { useMutation } from "@apollo/client";
-import { useNavigation } from "@react-navigation/native";
 import { setItemAsync } from "expo-secure-store";
 
+import { LoginFooter } from "./components/LoginFooter";
 import { useLoginScreen } from "./hooks/useLoginScreen";
 
 import { LOGIN_USER } from "@/api/login";
-import { Button } from "@/components/Button";
-import { TextButton } from "@/components/TextButton";
 import { FormInput } from "@/components/form/FormInput";
 import { FormTemplate } from "@/components/form/FormTemplate";
-import { LoginScreenNavigationProp } from "@/navigation/types";
 import { LoginUserPayload } from "@/types/login";
-import { Box, Text } from "@/utils/theme";
+import { Box } from "@/utils/theme";
 
 export const LoginScreen = () => {
-  const { navigate } = useNavigation<LoginScreenNavigationProp>();
-
-  const { control, reset, handleSubmit, setUser } = useLoginScreen();
+  const { control, isValid, reset, handleSubmit, setUser } = useLoginScreen();
   const [loginUser] = useMutation(LOGIN_USER);
   const onSubmit = async (loginData: LoginUserPayload) => {
     try {
@@ -37,29 +32,16 @@ export const LoginScreen = () => {
     }
   };
 
-  const renderFooter = () => (
-    <Box>
-      <Button title="Log in" onPress={handleSubmit(onSubmit)} />
-      <Box
-        flexDirection="row"
-        columnGap="s"
-        justifyContent="center"
-        alignItems="center"
-        paddingTop="m"
-      >
-        <Text variant="bodyText" color="white">
-          Don't have an account?
-        </Text>
-        <TextButton title="Sign up" onPress={() => navigate("SIGNUP")} />
-      </Box>
-    </Box>
-  );
-
   return (
     <FormTemplate
       title="Welcome back"
       subtitle="Log in and stay in touch with everyone!"
-      renderFooter={renderFooter}
+      renderFooter={() => (
+        <LoginFooter
+          onSubmit={handleSubmit(onSubmit)}
+          isButtonDisabled={!isValid}
+        />
+      )}
     >
       <Box rowGap="m">
         <FormInput
