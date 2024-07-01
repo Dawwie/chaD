@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 
-export const useSignupScreen = () => {
+export const useSignUpScreen = () => {
   const {
     control,
     reset,

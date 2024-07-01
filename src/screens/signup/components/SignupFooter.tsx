@@ -7,15 +7,15 @@ import { TERMS_AND_CONDITIONS, PRIVACY_POLICY_URL } from "@/constants/sites";
 import { SignUpScreenNavigationProp } from "@/navigation/types";
 import { Text, Box } from "@/utils/theme";
 
-interface SignupFooterProps {
+interface SignUpFooterProps {
   isButtonDisabled?: boolean;
   onSubmit: () => void;
 }
 
-export const SignupFooter = ({
+export const SignUpFooter = ({
   isButtonDisabled,
   onSubmit,
-}: SignupFooterProps) => {
+}: SignUpFooterProps) => {
   const { navigate } = useNavigation<SignUpScreenNavigationProp>();
 
   return (

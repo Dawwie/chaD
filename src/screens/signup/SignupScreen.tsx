@@ -1,12 +1,12 @@
-import { SignupFooter } from "./components/SignupFooter";
-import { useSignupScreen } from "./hooks/useSignupScreen";
+import { SignUpFooter } from "./components/SignUpFooter";
+import { useSignUpScreen } from "./hooks/useSignUpScreen";
 
 import { FormInput } from "@/components/form/FormInput";
 import { FormTemplate } from "@/components/form/FormTemplate";
 import { Box } from "@/utils/theme";
 
-export const SignupScreen = () => {
-  const { control, isValid, handleSubmit } = useSignupScreen();
+export const SignUpScreen = () => {
+  const { control, isValid, handleSubmit } = useSignUpScreen();
   const onSubmit = (data) => {
     //
   };
@@ -15,7 +15,7 @@ export const SignupScreen = () => {
     <FormTemplate
       title="Create account"
       renderFooter={() => (
-        <SignupFooter
+        <SignUpFooter
           onSubmit={handleSubmit(onSubmit)}
           isButtonDisabled={!isValid}
         />

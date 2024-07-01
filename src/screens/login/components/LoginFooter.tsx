@@ -5,7 +5,7 @@ import { TextButton } from "@/components/TextButton";
 import { LoginScreenNavigationProp } from "@/navigation/types";
 import { Text, Box } from "@/utils/theme";
 
-interface SignupFooterProps {
+interface SignUpFooterProps {
   isButtonDisabled?: boolean;
   onSubmit: () => void;
 }
@@ -13,7 +13,7 @@ interface SignupFooterProps {
 export const LoginFooter = ({
   isButtonDisabled,
   onSubmit,
-}: SignupFooterProps) => {
+}: SignUpFooterProps) => {
   const { navigate } = useNavigation<LoginScreenNavigationProp>();
 
   return (
