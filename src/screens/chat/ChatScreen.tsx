@@ -1,4 +1,5 @@
 import { useQuery } from "@apollo/client";
+import { LogBox } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { ChatHeader } from "./components/ChatHeader";
@@ -17,6 +18,14 @@ interface ChatScreenProps {
   route: ChatScreenRouteProp;
   navigation: ChatScreenNavigationProp;
 }
+
+/*
+COMMENT: ignore GiftedChat warning regarding defaultProps
+TODO: remove this once the library fixes the issue (https://github.com/FaridSafi/react-native-gifted-chat/issues/2498)
+*/
+LogBox.ignoreLogs([
+  "Warning: Avatar: Support for defaultProps will be removed from function components in a future major release. Use JavaScript default parameters instead.",
+]);
 
 export const ChatScreen = ({ route }: ChatScreenProps) => {
   const insets = useSafeAreaInsets();
