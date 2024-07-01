@@ -4,8 +4,8 @@ import { ChatBubble } from "./ChatBubble";
 import { ChatFooter } from "./ChatFooter";
 import { useChatMessages } from "../hooks/useChatMessages";
 
-import { useUser } from "@/contexts/UserProvider";
 import { Message } from "@/api/types/rooms";
+import { useUser } from "@/contexts/UserProvider";
 
 interface ChatMessagesProps {
   roomId: string;

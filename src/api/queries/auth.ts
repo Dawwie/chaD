@@ -30,13 +30,11 @@ export const REGISTER_USER = gql`
       password: $password
       passwordConfirmation: $passwordConfirmation
     ) {
-      user {
-        firstName
-        id
-        lastName
-        email
-        role
-      }
+      firstName
+      id
+      lastName
+      email
+      role
     }
   }
 `;

@@ -17,10 +17,7 @@ export const FormInput = ({
   name,
   control,
   placeholder,
-  value,
   variant,
-  keyboardType,
-  autoCapitalize,
   containerStyle,
   required,
   ...rest
@@ -42,8 +39,6 @@ export const FormInput = ({
             onChangeText={onChange}
             value={value}
             variant={variant}
-            keyboardType={keyboardType}
-            autoCapitalize={autoCapitalize}
             {...rest}
           />
         )}

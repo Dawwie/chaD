@@ -6,8 +6,8 @@ import uuid from "react-native-uuid";
 import { transformMessages } from "../helpers/transformMessages";
 
 import { SEND_MESSAGE } from "@/api/queries/chat";
-import { useUser } from "@/contexts/UserProvider";
 import { Message } from "@/api/types/rooms";
+import { useUser } from "@/contexts/UserProvider";
 
 interface ChatMessagesHookProps {
   messagesList: Message[];
@@ -33,7 +33,7 @@ export const useChatMessages = ({
     try {
       await sendMessage({ variables: { body, roomId } });
       setMessages((previousMessages) =>
-        GiftedChat.append(previousMessages, messages)
+        GiftedChat.append(previousMessages, messages),
       );
       setText("");
     } catch (err) {

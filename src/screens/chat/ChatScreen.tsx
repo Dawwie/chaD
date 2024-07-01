@@ -5,12 +5,12 @@ import { ChatHeader } from "./components/ChatHeader";
 import { ChatMessages } from "./components/ChatMessages";
 
 import { GET_ROOM_DETAILS } from "@/api/queries/rooms";
+import { GetRoomDetailsResponse } from "@/api/types/rooms";
 import { DismissKeyboard } from "@/components/DismissKeyboard";
 import {
   ChatScreenNavigationProp,
   ChatScreenRouteProp,
 } from "@/navigation/types";
-import { GetRoomDetailsResponse } from "@/api/types/rooms";
 import { Box } from "@/utils/theme";
 
 interface ChatScreenProps {

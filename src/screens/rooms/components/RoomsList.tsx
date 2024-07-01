@@ -3,8 +3,8 @@ import React from "react";
 
 import { RoomItem } from "./RoomItem";
 
-import { LoadingIndicator } from "@/components/LoadingIndicator";
 import { SingleRoomType } from "@/api/types/rooms";
+import { LoadingIndicator } from "@/components/LoadingIndicator";
 import { Box, useTheme } from "@/utils/theme";
 
 const ESTIMATED_ITEM_SIZE = 96;

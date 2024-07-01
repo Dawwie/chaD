@@ -16,10 +16,7 @@ export const LoginScreen = () => {
   const onSubmit = async (loginData: LoginUserPayload) => {
     try {
       const response = await loginUser({
-        variables: {
-          email: loginData.email,
-          password: loginData.password,
-        },
+        variables: loginData,
       });
       if (response.data) {
         setUser(response.data.loginUser.user);

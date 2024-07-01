@@ -8,5 +8,5 @@ export interface UserContextState {
 }
 
 export const UserContext = createContext<UserContextState | undefined>(
-  undefined
+  undefined,
 );

@@ -32,6 +32,8 @@ export const CustomTextInput = ({
   variant = "default",
   clearButtonMode = "always",
   isBottomRightRounded = true,
+  autoCapitalize = "none",
+  autoCorrect = false,
   ...rest
 }: CustomTextInputProps) => {
   const [isFocused, setIsFocused] = useState<boolean>(false);

@@ -5,8 +5,8 @@ import { RoomHeader } from "./components/RoomHeader";
 import { RoomsList } from "./components/RoomsList";
 
 import { GET_ROOMS } from "@/api/queries/rooms";
-import { useUser } from "@/contexts/UserProvider";
 import { RoomsType } from "@/api/types/rooms";
+import { useUser } from "@/contexts/UserProvider";
 
 export const RoomsScreen = () => {
   const { data, loading } = useQuery<RoomsType>(GET_ROOMS);

@@ -6,9 +6,9 @@ import { TouchableOpacity } from "react-native";
 import { RoomBadge } from "./RoomBadge";
 
 import { GET_ROOM_DETAILS } from "@/api/queries/rooms";
+import { SingleRoomType, GetRoomDetailsResponse } from "@/api/types/rooms";
 import { Avatar } from "@/components/Avatar";
 import { ChatScreenNavigationProp } from "@/navigation/types";
-import { SingleRoomType, GetRoomDetailsResponse } from "@/api/types/rooms";
 import { Text, Box } from "@/utils/theme";
 
 interface RoomItemProps {
