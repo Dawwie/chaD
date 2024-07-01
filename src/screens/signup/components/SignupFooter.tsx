@@ -7,20 +7,27 @@ import { TERMS_AND_CONDITIONS, PRIVACY_POLICY_URL } from "@/constants/sites";
 import { SignUpScreenNavigationProp } from "@/navigation/types";
 import { Text, Box } from "@/utils/theme";
 
-interface SignUpFooterProps {
+interface SignUpFooterProps extends ButtonProps {
   isButtonDisabled?: boolean;
+  isButtonLoading?: boolean;
   onSubmit: () => void;
 }
 
 export const SignUpFooter = ({
   isButtonDisabled,
+  isButtonLoading,
   onSubmit,
 }: SignUpFooterProps) => {
   const { navigate } = useNavigation<SignUpScreenNavigationProp>();
 
   return (
     <Box>
-      <Button title="Sign up" onPress={onSubmit} disabled={isButtonDisabled} />
+      <Button
+        title="Sign up"
+        onPress={onSubmit}
+        disabled={isButtonDisabled}
+        isLoading={isButtonLoading}
+      />
       <Box marginTop="m" alignItems="center">
         <Text variant="specialText" color="white">
           By signing up you agree with

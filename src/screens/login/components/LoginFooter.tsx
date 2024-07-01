@@ -5,20 +5,27 @@ import { TextButton } from "@/components/TextButton";
 import { LoginScreenNavigationProp } from "@/navigation/types";
 import { Text, Box } from "@/utils/theme";
 
-interface SignUpFooterProps {
+interface LoginFooterProps {
   isButtonDisabled?: boolean;
+  isButtonLoading?: boolean;
   onSubmit: () => void;
 }
 
 export const LoginFooter = ({
   isButtonDisabled,
+  isButtonLoading,
   onSubmit,
-}: SignUpFooterProps) => {
+}: LoginFooterProps) => {
   const { navigate } = useNavigation<LoginScreenNavigationProp>();
 
   return (
     <Box>
-      <Button title="Log in" onPress={onSubmit} disabled={isButtonDisabled} />
+      <Button
+        title="Log in"
+        onPress={onSubmit}
+        disabled={isButtonDisabled}
+        isLoading={isButtonLoading}
+      />
       <Box
         flexDirection="row"
         columnGap="s"

@@ -1,18 +1,22 @@
 import React from "react";
 import { Pressable, GestureResponderEvent } from "react-native";
 
+import { LoadingIndicator } from "./LoadingIndicator";
+
 import { Box, Text } from "@/utils/theme";
 
 interface ButtonProps {
   title: string;
   onPress?: (event: GestureResponderEvent) => void;
   disabled?: boolean;
+  isLoading?: boolean;
 }
 
 export const Button: React.FC<ButtonProps> = ({
   title,
   onPress,
-  disabled = false,
+  disabled,
+  isLoading,
 }) => {
   return (
     <Pressable onPress={onPress} disabled={disabled}>
@@ -29,9 +33,17 @@ export const Button: React.FC<ButtonProps> = ({
           }
           borderRadius="l"
         >
-          <Text variant="buttonText" color="white">
-            {title}
-          </Text>
+          {isLoading ? (
+            <LoadingIndicator
+              size="small"
+              flexContainer={false}
+              color="white"
+            />
+          ) : (
+            <Text variant="buttonText" color="white">
+              {title}
+            </Text>
+          )}
         </Box>
       )}
     </Pressable>

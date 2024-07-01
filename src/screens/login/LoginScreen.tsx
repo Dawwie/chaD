@@ -1,34 +1,13 @@
-import { useMutation } from "@apollo/client";
-
 import { LoginFooter } from "./components/LoginFooter";
 import { useLoginScreen } from "./hooks/useLoginScreen";
 
-import { LOGIN_USER } from "@/api/queries/auth";
-import { LoginUserPayload } from "@/api/types/auth";
 import { FormInput } from "@/components/form/FormInput";
 import { FormTemplate } from "@/components/form/FormTemplate";
-import { useAuth } from "@/contexts/AuthContext";
 import { Box } from "@/utils/theme";
 
 export const LoginScreen = () => {
-  const { control, isValid, reset, handleSubmit, setUser } = useLoginScreen();
-  const { setAuth } = useAuth();
-  const [loginUser] = useMutation(LOGIN_USER);
-  const onSubmit = async (loginData: LoginUserPayload) => {
-    try {
-      const response = await loginUser({
-        variables: loginData,
-      });
-      if (response.data) {
-        setUser(response.data.loginUser.user);
-        setAuth(response.data.loginUser.token);
-      }
-    } catch (error) {
-      console.error(error);
-    } finally {
-      reset();
-    }
-  };
+  const { control, isValid, isPending, handleSubmit, onSubmit } =
+    useLoginScreen();
 
   return (
     <FormTemplate
@@ -38,6 +17,7 @@ export const LoginScreen = () => {
         <LoginFooter
           onSubmit={handleSubmit(onSubmit)}
           isButtonDisabled={!isValid}
+          isButtonLoading={isPending}
         />
       )}
     >

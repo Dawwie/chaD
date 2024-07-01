@@ -1,24 +1,32 @@
 import { ActivityIndicator } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
-import { Box, useColors } from "@/utils/theme";
+import { Box, Colors, useColors } from "@/utils/theme";
 
 interface LoadingIndicatorProps {
   size?: number | "small" | "large";
+  withInsets?: boolean;
+  color?: Colors;
+  flexContainer?: boolean;
 }
 
-export const LoadingIndicator = ({ size = "large" }: LoadingIndicatorProps) => {
+export const LoadingIndicator = ({
+  withInsets,
+  color,
+  size = "large",
+  flexContainer = true,
+}: LoadingIndicatorProps) => {
   const colors = useColors();
   const insets = useSafeAreaInsets();
 
   return (
     <Box
-      flex={1}
+      flex={flexContainer ? 1 : undefined}
       justifyContent="center"
       alignItems="center"
-      style={{ marginBottom: insets.top }}
+      style={{ marginBottom: withInsets ? insets.top : undefined }}
     >
-      <ActivityIndicator size={size} color={colors.darkestPlum} />
+      <ActivityIndicator size={size} color={color ?? colors.darkestPlum} />
     </Box>
   );
 };

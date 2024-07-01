@@ -30,7 +30,7 @@ export const RoomsList = ({ rooms, isLoading }: RoomsListProps) => {
   return (
     <>
       {isLoading ? (
-        <LoadingIndicator />
+        <LoadingIndicator withInsets />
       ) : (
         <Box flex={1} marginTop="3xl">
           <FlashList
