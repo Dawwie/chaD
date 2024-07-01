@@ -11,7 +11,7 @@ const AuthStack = createNativeStackNavigator<AuthStackParamList>();
 
 export const AuthStackNavigation = () => {
   return (
-    <Box flex={1} backgroundColor="lightBlue">
+    <Box flex={1}>
       <AuthStack.Navigator
         initialRouteName="ROOMS"
         {...StackNavigatorPresets.modalNavigator}

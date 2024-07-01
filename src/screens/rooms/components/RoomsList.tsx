@@ -32,7 +32,7 @@ export const RoomsList = ({ rooms, isLoading }: RoomsListProps) => {
       {isLoading ? (
         <LoadingIndicator />
       ) : (
-        <Box flex={1} marginTop="xl">
+        <Box flex={1} marginTop="3xl">
           <FlashList
             data={rooms}
             renderItem={renderItem}
