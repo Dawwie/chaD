@@ -14,27 +14,34 @@ Welcome to **chaD**, the ultimate chatting application designed with a touch of 
 ## Tech Stack
 chaD is built using the following technologies:
 - **Mobile Development:**
- - React Native
- - Expo
- - React Navigation
- - Reanimated
- - Hooks: React Hook Form
+   - React Native
+   - Expo
+   - React Navigation
+   - Reanimated
+   - Hooks: React Hook Form
 - **GraphQL:**
- - Apollo Client
- - GraphQL
+   - Apollo Client
+   - GraphQL
 - **State Management:**
- - React useContext
- - React Native Safe Area Context
+   - React useContext
+   - React Native Safe Area Context
 - **Utilities:**
- - Date-fns
- - React Native UUID
- - Shopify FlashList
- - Shopify Restyle
+   - Date-fns
+   - React Native UUID
+   - Shopify FlashList
+   - Shopify Restyle
 - **Development Tools:**
- - TypeScript
- - ESLint (with Prettier and Universe configs)
- - Prettier
+   - TypeScript
+   - ESLint (with Prettier and Universe configs)
+   - Prettier
 ## Installation
+
+**Prerequisites**
+
+- **Expo**
+- **Expo Go** (on simulator or physical device)
+- Create `.env` value from `.env.example` and set proper values
+
 To get started with chaD, follow these steps:
 1. **Clone the repository:**
    
