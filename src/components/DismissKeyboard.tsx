@@ -1,8 +1,6 @@
 import { Keyboard, Pressable, PressableProps } from "react-native";
 
-interface DismissKeyboardProps extends PressableProps {
-  children: React.ReactNode;
-}
+interface DismissKeyboardProps extends PressableProps {}
 
 export const DismissKeyboard = ({
   children,

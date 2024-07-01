@@ -6,9 +6,8 @@ import Back from "@/assets/icons/back.svg";
 import { RoomsScreenNavigationProp } from "@/navigation/types";
 import { Box } from "@/utils/theme";
 
-interface HeaderProps {
+interface HeaderProps extends React.ComponentProps<typeof Box> {
   isBackButton?: boolean;
-  children?: React.ReactNode;
 }
 
 export const HEADER_HEIGHT = 120;
