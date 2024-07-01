@@ -62,12 +62,18 @@ export const LoginScreen = () => {
       renderFooter={renderFooter}
     >
       <Box rowGap="m">
-        <FormInput label="e-mail address" control={control} name="email" />
+        <FormInput
+          label="e-mail address"
+          control={control}
+          name="email"
+          required
+        />
         <FormInput
           label="password"
           control={control}
           name="password"
           variant="password"
+          required
         />
       </Box>
     </FormTemplate>

@@ -1,55 +1,59 @@
-import { useNavigation } from "@react-navigation/native";
+import { SignupFooter } from "./components/SignupFooter";
+import { useSignupScreen } from "./hooks/useSignupScreen";
 
-import { Button } from "@/components/Button";
-import { Link } from "@/components/Link";
-import { TextButton } from "@/components/TextButton";
 import { FormInput } from "@/components/form/FormInput";
 import { FormTemplate } from "@/components/form/FormTemplate";
-import { TERMS_AND_CONDITIONS, PRIVACY_POLICY_URL } from "@/constants/sites";
-import { LoginScreenNavigationProp } from "@/navigation/types";
-import { Text, Box } from "@/utils/theme";
+import { Box } from "@/utils/theme";
 
 export const SignupScreen = () => {
-  const { navigate } = useNavigation<LoginScreenNavigationProp>();
-  const renderFooter = () => (
-    <Box>
-      <Button title="Sign up" />
-      <Box marginTop="m" alignItems="center">
-        <Text variant="specialText" color="white">
-          By signing up you agree with
-        </Text>
-        <Box flexDirection="row" columnGap="xs">
-          <Link text="Terms and Conditions" url={TERMS_AND_CONDITIONS} />
-          <Text variant="specialText" color="white">
-            and
-          </Text>
-          <Link text="Privacy Policy" url={PRIVACY_POLICY_URL} />
-        </Box>
-      </Box>
-
-      <Box
-        flexDirection="row"
-        columnGap="s"
-        justifyContent="center"
-        alignItems="center"
-        paddingTop="m"
-      >
-        <Text variant="bodyText" color="white">
-          Already have an account?
-        </Text>
-        <TextButton title="Log in" onPress={() => navigate("LOGIN")} />
-      </Box>
-    </Box>
-  );
+  const { control, isValid, handleSubmit } = useSignupScreen();
+  const onSubmit = (data) => {
+    //
+  };
 
   return (
-    <FormTemplate title="Create account" renderFooter={renderFooter}>
+    <FormTemplate
+      title="Create account"
+      renderFooter={() => (
+        <SignupFooter
+          onSubmit={handleSubmit(onSubmit)}
+          isButtonDisabled={!isValid}
+        />
+      )}
+    >
       <Box rowGap="m">
-        <FormInput label="e-mail address" />
-        <FormInput label="first name" />
-        <FormInput label="last name" />
-        <FormInput label="password" />
-        <FormInput label="password confirmation" />
+        <FormInput
+          label="e-mail address"
+          control={control}
+          name="email"
+          required
+        />
+        <FormInput
+          label="first name"
+          control={control}
+          name="firstName"
+          required
+        />
+        <FormInput
+          label="last name"
+          control={control}
+          name="lastName"
+          required
+        />
+        <FormInput
+          label="password"
+          control={control}
+          name="password"
+          variant="password"
+          required
+        />
+        <FormInput
+          label="password confirmation"
+          control={control}
+          name="passwordConfirmation"
+          variant="password"
+          required
+        />
       </Box>
     </FormTemplate>
   );

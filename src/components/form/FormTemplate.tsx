@@ -45,7 +45,7 @@ export const FormTemplate = ({
         <Box paddingHorizontal="xl" alignItems="center">
           {children}
         </Box>
-        {renderFooter && <Box>{renderFooter()}</Box>}
+        {renderFooter && <Box paddingHorizontal="m">{renderFooter()}</Box>}
       </Box>
     </Box>
   );

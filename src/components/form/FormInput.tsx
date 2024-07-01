@@ -8,6 +8,7 @@ interface FormInputProps extends React.ComponentProps<typeof CustomTextInput> {
   label: string;
   name: string;
   control: Control<any>;
+  required?: boolean;
   containerStyle?: any;
 }
 
@@ -21,6 +22,7 @@ export const FormInput = ({
   keyboardType,
   autoCapitalize,
   containerStyle,
+  required,
   ...rest
 }: FormInputProps) => {
   return (
@@ -31,7 +33,7 @@ export const FormInput = ({
       <Controller
         control={control}
         rules={{
-          required: true,
+          required,
         }}
         render={({ field: { onChange, onBlur, value } }) => (
           <CustomTextInput
