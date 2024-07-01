@@ -1,5 +1,4 @@
 import { useMutation } from "@apollo/client";
-import { setItemAsync } from "expo-secure-store";
 
 import { LoginFooter } from "./components/LoginFooter";
 import { useLoginScreen } from "./hooks/useLoginScreen";
@@ -8,10 +7,12 @@ import { LOGIN_USER } from "@/api/queries/auth";
 import { LoginUserPayload } from "@/api/types/auth";
 import { FormInput } from "@/components/form/FormInput";
 import { FormTemplate } from "@/components/form/FormTemplate";
+import { useAuth } from "@/contexts/AuthContext";
 import { Box } from "@/utils/theme";
 
 export const LoginScreen = () => {
   const { control, isValid, reset, handleSubmit, setUser } = useLoginScreen();
+  const { setAuth } = useAuth();
   const [loginUser] = useMutation(LOGIN_USER);
   const onSubmit = async (loginData: LoginUserPayload) => {
     try {
@@ -20,7 +21,7 @@ export const LoginScreen = () => {
       });
       if (response.data) {
         setUser(response.data.loginUser.user);
-        setItemAsync("token", response.data.loginUser.token);
+        setAuth(response.data.loginUser.token);
       }
     } catch (error) {
       console.error(error);

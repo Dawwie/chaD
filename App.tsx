@@ -8,6 +8,7 @@ import {
 
 import { apolloClient } from "./apollo";
 
+import { AuthProvider } from "@/contexts/AuthProvider";
 import { UserProvider } from "@/contexts/UserProvider";
 import { AppNavigation } from "@/navigation";
 import { theme } from "@/utils/theme";
@@ -19,9 +20,11 @@ export default function App() {
     <ThemeProvider theme={theme}>
       <SafeAreaProvider initialMetrics={initialWindowMetrics}>
         <ApolloProvider client={apolloClient}>
-          <UserProvider>
-            <AppNavigation />
-          </UserProvider>
+          <AuthProvider>
+            <UserProvider>
+              <AppNavigation />
+            </UserProvider>
+          </AuthProvider>
         </ApolloProvider>
       </SafeAreaProvider>
     </ThemeProvider>
