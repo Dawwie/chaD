@@ -9,6 +9,7 @@ export const palette = {
   gray100: "#E9EAEE",
   gray300: "#BFC1CC",
   gray500: "#9FA2B2",
+  aliceBlue: "#F0F5FD",
   white: "#FFFFFF",
   black: "#1A1A1A",
   active: "#A8FF76",
@@ -28,6 +29,7 @@ export const colors = {
   veryLightGray: palette.gray100,
   lightGray: palette.gray300,
   mediumGray: palette.gray500,
+  aliceBlue: palette.aliceBlue,
   active: palette.active,
   error: palette.error,
 } as const;

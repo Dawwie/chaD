@@ -1,4 +1,4 @@
-import { FormTemplate } from "@/components/FormTemplate";
+import { FormTemplate } from "@/components/form/FormTemplate";
 
 export const SignupScreen = () => {
   return <FormTemplate title="Create account" />;
