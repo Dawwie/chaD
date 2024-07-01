@@ -1,21 +1,25 @@
+import { Controller, Control } from "react-hook-form";
+
 import { CustomTextInput } from "../CustomTextInput";
 
 import { Box, Text } from "@/utils/theme";
 
 interface FormInputProps extends React.ComponentProps<typeof CustomTextInput> {
   label: string;
+  name: string;
+  control: Control<any>;
   containerStyle?: any;
 }
 
 export const FormInput = ({
   label,
+  name,
+  control,
   placeholder,
   value,
   variant,
-  onChangeText,
   keyboardType,
   autoCapitalize,
-  onSubmitEditing,
   containerStyle,
   ...rest
 }: FormInputProps) => {
@@ -24,15 +28,24 @@ export const FormInput = ({
       <Text variant="titleInput" paddingBottom="s" color="aliceBlue">
         {label}
       </Text>
-      <CustomTextInput
-        placeholder={placeholder}
-        value={value}
-        variant={variant}
-        onChangeText={onChangeText}
-        keyboardType={keyboardType}
-        autoCapitalize={autoCapitalize}
-        onSubmitEditing={onSubmitEditing}
-        {...rest}
+      <Controller
+        control={control}
+        rules={{
+          required: true,
+        }}
+        render={({ field: { onChange, onBlur, value } }) => (
+          <CustomTextInput
+            placeholder={placeholder}
+            onBlur={onBlur}
+            onChangeText={onChange}
+            value={value}
+            variant={variant}
+            keyboardType={keyboardType}
+            autoCapitalize={autoCapitalize}
+            {...rest}
+          />
+        )}
+        name={name}
       />
     </Box>
   );
