@@ -8,12 +8,12 @@ const IMAGE_TRANSITION_DURATION = 1000;
 
 export const avatarSizes = { s: 24, m: 44, l: 64 };
 
+type AvatarSize = keyof typeof avatarSizes;
+
 type AvatarProps = ComponentProps<typeof Box> & {
   src?: string;
-  size?: keyof typeof avatarSizes;
+  size?: AvatarSize;
 };
-
-export type AvatarSize = keyof typeof avatarSizes;
 
 export const Avatar = ({ size = "l", src, ...containerProps }: AvatarProps) => (
   <Box
