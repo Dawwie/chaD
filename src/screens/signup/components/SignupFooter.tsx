@@ -7,7 +7,7 @@ import { TERMS_AND_CONDITIONS, PRIVACY_POLICY_URL } from "@/constants/sites";
 import { SignUpScreenNavigationProp } from "@/navigation/types";
 import { Text, Box } from "@/utils/theme";
 
-interface SignUpFooterProps extends ButtonProps {
+interface SignUpFooterProps {
   isButtonDisabled?: boolean;
   isButtonLoading?: boolean;
   onSubmit: () => void;
